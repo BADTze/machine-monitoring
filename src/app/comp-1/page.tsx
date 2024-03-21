@@ -75,9 +75,10 @@ export default function Areachart() {
           &lt;- Kembali
         </h3>
       </Link>
-      <div className="flex mt-12 min min-w-full">
-        <Card className="w-1/2">
-          <AreaChart
+      <div className="flex flex-col my-12 min min-w-full">
+        <Card className="w-36 p-4 mx-5 border border-gray-400 rounded-l">Test</Card>
+        <div className="w-1/2 border border-gray-400 rounded-xl col-span-2">
+        <AreaChart
             className="h-40 w-auto"
             data={chartdata}
             index="date"
@@ -86,7 +87,19 @@ export default function Areachart() {
             yAxisWidth={30}
             customTooltip={customTooltip}
           />
-        </Card>
+        </div>
+        <Card className="w-36 p-4 mx-5 border border-gray-400 rounded-l">Test</Card>
+        <div className="w-1/2 border border-gray-400 rounded-xl col-span-2">
+        <AreaChart
+            className="h-40 w-auto"
+            data={chartdata}
+            index="date"
+            categories={["Running"]}
+            colors={["blue"]}
+            yAxisWidth={30}
+            customTooltip={customTooltip}
+          />
+        </div>
       </div>
     </main>
   );
