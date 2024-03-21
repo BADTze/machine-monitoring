@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="relative flex flex-col place-items-center">
-        <h3>DASHBOARD MACHINE MONITORING</h3>
+        <h3>DASHBOARD SMART HEALTHY ASSET</h3>
       </div>
       <div className="mt-32 grid text-center lg:max-w-3xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left">
         <Link
