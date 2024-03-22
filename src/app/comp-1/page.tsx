@@ -1,5 +1,5 @@
 "use client";
-import { AreaChart, Card, Title } from "@tremor/react";
+import { AreaChart, Card, DatePicker, Title } from "@tremor/react";
 import Link from "next/link";
 import {
   ReactElement,
@@ -69,38 +69,49 @@ export default function Areachart() {
     );
   };
   return (
-    <main>
-      <Link href="/">
-        <h3 className="text-lg mt-4 ml-5 font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
-          &lt;- Kembali
-        </h3>
-      </Link>
-      <div className="flex flex-col my-12 min min-w-full">
-        <Card className="w-36 p-4 mx-5 border border-gray-400 rounded-l">Test</Card>
-        <div className="w-1/2 border border-gray-400 rounded-xl col-span-2">
-        <AreaChart
-            className="h-40 w-auto"
-            data={chartdata}
-            index="date"
-            categories={["Running"]}
-            colors={["blue"]}
-            yAxisWidth={30}
-            customTooltip={customTooltip}
-          />
+    <div className="px-3">
+      <header className="flex justify-between mt-4">
+        <Link className="max-w-sm" href="/">
+          <h3 className="text-lg ml-5 font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
+            &lt;- Kembali
+          </h3>
+        </Link>
+        <DatePicker className="max-w-sm" />
+      </header>
+      <div className="mt-12">
+        <div className="flex">
+          <div className="rounded-lg border w-40">
+            <h1>Test</h1>
+          </div>
+          <div className="rounded-lg border w-1/2">
+            <AreaChart
+              className="h-40 w-auto"
+              data={chartdata}
+              index="date"
+              categories={["Running"]}
+              colors={["blue"]}
+              yAxisWidth={30}
+              customTooltip={customTooltip}
+            />
+          </div>
         </div>
-        <Card className="w-36 p-4 mx-5 border border-gray-400 rounded-l">Test</Card>
-        <div className="w-1/2 border border-gray-400 rounded-xl col-span-2">
-        <AreaChart
-            className="h-40 w-auto"
-            data={chartdata}
-            index="date"
-            categories={["Running"]}
-            colors={["blue"]}
-            yAxisWidth={30}
-            customTooltip={customTooltip}
-          />
+        <div className="flex ">
+          <div className="rounded-lg border w-40">
+            <h1>Test</h1>
+          </div>
+          <div className="rounded-lg border w-1/2">
+            <AreaChart
+              className="h-40 w-auto"
+              data={chartdata}
+              index="date"
+              categories={["Running"]}
+              colors={["blue"]}
+              yAxisWidth={30}
+              customTooltip={customTooltip}
+            />
+          </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
