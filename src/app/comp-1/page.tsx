@@ -80,10 +80,10 @@ export default function Areachart() {
       </header>
       <div className="mt-12">
         <div className="flex">
-          <div className="rounded-lg border w-40">
-            <h1>Test</h1>
+          <div className=" m-2 rounded-lg border w-40">
+            <p>Testing</p>
           </div>
-          <div className="rounded-lg border w-1/2">
+          <div className="m-2 rounded-lg border w-1/2">
             <AreaChart
               className="h-40 w-auto"
               data={chartdata}
@@ -96,10 +96,10 @@ export default function Areachart() {
           </div>
         </div>
         <div className="flex ">
-          <div className="rounded-lg border w-40">
+          <div className="m-2 rounded-lg border w-40">
             <h1>Test</h1>
           </div>
-          <div className="rounded-lg border w-1/2">
+          <div className="m-2 rounded-lg border w-1/2">
             <AreaChart
               className="h-40 w-auto"
               data={chartdata}
