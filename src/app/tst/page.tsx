@@ -18,9 +18,7 @@ export default function TestPage() {
                     <Card className="bg-slate-600 text-white w-40 h-40">Ceki Ceki</Card>
                     <div className="border bg-orange-500 max-h-40">Chart</div>
                 </div>
-                </div>
-                
-                
+                </div>    
             </div>
 
         </div>
