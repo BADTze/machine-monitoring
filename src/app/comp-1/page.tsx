@@ -81,7 +81,7 @@ export default function Areachart() {
       </header>
 
       <div className=" flex mt-5 h-96 space-x-4 h-full">
-        <div className="border size-96 h-96 rounded-lg ">
+        <div className="size-96 h-full rounded-lg ">
           Test
         </div>
 
