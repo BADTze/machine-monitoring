@@ -69,7 +69,7 @@ export default function Areachart() {
     );
   };
   return (
-    <div className="h-full px-3">
+    <div className="h-full px-3 ">
 
       <header className="flex justify-between mt-4">
         <Link className="max-w-sm" href="/">
@@ -80,8 +80,8 @@ export default function Areachart() {
         <DatePicker className="max-w-sm" />
       </header>
 
-      <div className=" flex mt-5 h-96 space-x-4 h-full">
-        <div className="size-96 h-full rounded-lg ">
+      <div className=" flex mt-5 h-96 space-x-2 h-full">
+        <div className="size-96 border h-full rounded-lg ">
           Test
         </div>
 
@@ -100,7 +100,7 @@ export default function Areachart() {
               />
             </div>
           </div>
-          <div className="flex space-x-2 mb-3 h-40 rounded-lg h-1/2">
+          {/* <div className="flex space-x-2 mb-3 h-40 rounded-lg h-1/2">
             <Card className="w-40 h-40">Ceki Ceki</Card>
             <div className="border rounded-lg max-h-40 w-full">
               <AreaChart
@@ -127,7 +127,7 @@ export default function Areachart() {
                 customTooltip={customTooltip}
               />
             </div>
-          </div>
+          </div> */}
         </div>
         
       </div>
