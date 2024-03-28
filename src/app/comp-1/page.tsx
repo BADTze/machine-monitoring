@@ -8,130 +8,127 @@ import {
   ReactPortal,
   AwaitedReactNode,
   Key,
+  useState,
 } from "react";
+import ReactApexChart from "react-apexcharts";
 
-const chartdata = [
-  {
-    date: "Jan 23",
-    Running: 167,
-  },
-  {
-    date: "Feb 23",
-    Running: 125,
-  },
-  {
-    date: "Mar 23",
-    Running: 156,
-  },
-  {
-    date: "Apr 23",
-    Running: 165,
-  },
-  {
-    date: "May 23",
-    Running: 153,
-  },
-  {
-    date: "Jun 23",
-    Running: 124,
-  },
-];
-
-export default function Areachart() {
-  const customTooltip = (props: { payload: any; active: any }) => {
-    const { payload, active } = props;
-    if (!active || !payload) return null;
-    return (
-      <div className="w-56 rounded-tremor-default border border-tremor-border bg-tremor-background p-2 text-tremor-default shadow-tremor-dropdown">
-        {payload.map(
-          (
-            category: {
-              color: any;
-              dataKey: string;
-              value: string;
-            },
-            idx: Key | null | undefined
-          ) => (
-            <div key={idx} className="flex flex-1 space-x-2.5">
-              <div
-                className={`flex w-1 flex-col bg-${category.color}-500 rounded`}
-              />
-              <div className="space-y-1">
-                <p className="text-tremor-content">{category.dataKey}</p>
-                <p className="font-medium text-tremor-content-emphasis">
-                  {category.value} bpm
-                </p>
-              </div>
-            </div>
-          )
-        )}
-      </div>
-    );
-  };
+export default function AreachartPage() {
   return (
-    <div className="h-full px-3 ">
-
-      <header className="flex justify-between mt-4">
+    <div className="px-3 bg-transparent">
+      <header className="flex justify-between p-2">
         <Link className="max-w-sm" href="/">
-          <h3 className="text-lg ml-5 font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
+          <h3 className="text-xl font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
             &lt;- Kembali
           </h3>
         </Link>
         <DatePicker className="max-w-sm" />
       </header>
 
-      <div className=" flex mt-5 h-96 space-x-2 h-full">
-        <div className="size-96 border h-full rounded-lg ">
-          Test
+      <div className=" flex h-96 space-x-2 h-full">
+        <div className=" rounded-lg space-y-2">
+          <img src="kompresor-gas.jpg" className="rounded-lg border-2" />
+          <div className="bg-green-600 shadow-lg text-white text-2xl p-5 h-20 w-1/2">
+            <h1>Running</h1>
+          </div>
+          <div className="h-12 border-2 shadow-lg bg-white p-2">RH</div>
+          <div className="h-12 border-2 shadow-lg bg-white p-2">RH period</div>
+          <div className="h-12 border-2 shadow-lg bg-white p-2">Down Time</div>
+          <div className="p-2 border-2 shadow-lg bg-white">
+            <h2>Maintenance</h2>
+            <div className="flex justify-around">
+              <div className="text-green-600">PM = 30</div>
+              <div className="text-yellow-400">CM = 30</div>
+              <div className="text-red-600">EM = 30</div>
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-col">
-          <div className="flex space-x-2 mb-3 h-40 rounded-lg h-1/2">
-            <Card className="w-40 h-40">Ceki Ceki</Card>
-            <div className="border rounded-lg max-h-40 w-full">
-              <AreaChart
-                className="h-40 w-auto"
-                data={chartdata}
-                index="date"
-                categories={["Running"]}
-                colors={["blue"]}
-                yAxisWidth={30}
-                customTooltip={customTooltip}
-              />
+        <div className="flex flex-col w-full">
+          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+            <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
+              <div className="text-sm">Hot Side First Stage Air Temp <b>MAX 30</b></div>
+              <div className="mt-2 text-5xl text-center">300</div>
+              <div className="mt-2">Celcius</div>
+            </div>
+
+            <div className="border-2 rounded-lg max-h-40 w-full bg-white">
+              {/* <ReactApexChart
+                options={{
+                  chart: {
+                    height: 150,
+                    width:20,
+                    type: "area",
+                  },
+                  dataLabels: {
+                    enabled: false,
+                  },
+                  stroke: {
+                    curve: "smooth",
+                  },
+                  xaxis: {
+                    type: "datetime",
+                    categories: [
+                      "2018-09-19T00:00:00.000Z",
+                      "2018-09-19T01:30:00.000Z",
+                      "2018-09-19T02:30:00.000Z",
+                      "2018-09-19T03:30:00.000Z",
+                      "2018-09-19T04:30:00.000Z",
+                      "2018-09-19T05:30:00.000Z",
+                      "2018-09-19T06:30:00.000Z",
+                    ],
+                  },
+                  tooltip: {
+                    x: {
+                      format: "dd/MM/yy HH:mm",
+                    },
+                  },
+                }}
+                series={[
+                  {
+                    name: "series1",
+                    data: [31, 40, 28, 51, 42, 109, 100],
+                  }
+                ]}
+                type="area"
+                height={150}
+              /> */}
             </div>
           </div>
-          {/* <div className="flex space-x-2 mb-3 h-40 rounded-lg h-1/2">
-            <Card className="w-40 h-40">Ceki Ceki</Card>
-            <div className="border rounded-lg max-h-40 w-full">
-              <AreaChart
-                className="h-40 w-auto"
-                data={chartdata}
-                index="date"
-                categories={["Running"]}
-                colors={["blue"]}
-                yAxisWidth={30}
-                customTooltip={customTooltip}
-              />
+          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+            <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
+              <div className="text-sm">Cold Side First Stage Air Temp <b>MAX 30</b></div>
+              <div className="mt-2 text-5xl text-center">300</div>
+              <div className="mt-2">Celcius</div>
+            </div>
+
+            <div className="border-2 rounded-lg max-h-40 w-full bg-white">
+            
             </div>
           </div>
-          <div className="flex space-x-2 mb-3 h-40 rounded-lg h-1/2">
-            <Card className="w-40 h-40">Ceki Ceki</Card>
-            <div className="border rounded-lg max-h-40 w-full">
-              <AreaChart
-                className="h-40 w-auto"
-                data={chartdata}
-                index="date"
-                categories={["Running"]}
-                colors={["blue"]}
-                yAxisWidth={30}
-                customTooltip={customTooltip}
-              />
+          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+            <div className=" flex-col w-41 h-40 rounded-lg p-2 border-2 bg-white">
+              <div className="text-sm">Hot Side Second Stage Air Temperature <b>MAX 30</b></div>
+              <div className="mt-2 text-5xl text-center">300</div>
+              <div className="mt-2">Celcius</div>
             </div>
-          </div> */}
+
+            <div className="border-2 rounded-lg max-h-40 w-full bg-white">
+            
+            </div>
+          </div>
+          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+            <div className=" flex-col w-41 h-40 rounded-lg p-2 border-2 bg-white">
+              <div className="text-sm">Hot Side Second Stage Air Temperature <b>MAX 30</b></div>
+              <div className="mt-2 text-5xl text-center">300</div>
+              <div className="mt-2">Celcius</div>
+            </div>
+
+            <div className="border-2 rounded-lg max-h-40 w-full bg-white">
+               
+            </div>
+          </div>
         </div>
-        
       </div>
-
     </div>
   );
 }
