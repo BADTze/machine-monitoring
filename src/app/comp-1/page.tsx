@@ -104,7 +104,7 @@ export default function AreachartPage() {
         </div>
 
         <div className="grid col-span-2">
-          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+          <div className="flex space-x-2 h-40 rounded-lg h-1/2">
             <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
               <p className="text-xs">Hot Side First Stage Air Temperature</p>
               <b>MAX 200</b>
@@ -155,7 +155,7 @@ export default function AreachartPage() {
               />
             </div>
           </div>
-          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+          <div className="flex space-x-2 h-40 rounded-lg h-1/2">
             <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
               <p className="text-xs">Cold Side First Stage Air Temperature</p>
               <b>MAX 55</b>
@@ -206,7 +206,7 @@ export default function AreachartPage() {
               />
             </div>
           </div>
-          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+          <div className="flex space-x-2 h-40 rounded-lg h-1/2">
             <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
               <p className="text-xs">Hot Side Second Stage Air Temperature</p>
               <b>MAX 175</b>
@@ -257,7 +257,7 @@ export default function AreachartPage() {
               />
             </div>
           </div>
-          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+          <div className="flex space-x-2 h-40 rounded-lg h-1/2">
             <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
               <p className="text-xs">Cold Side Second Stage Air Temperature</p>
               <b>MAX 55</b>
@@ -308,7 +308,7 @@ export default function AreachartPage() {
               />
             </div>
           </div>
-          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+          <div className="flex space-x-2 h-40 rounded-lg h-1/2">
             <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
               <p className="text-xs">Hot Side Third Stage Air Temperature</p>
               <b>MAX 165</b>
@@ -359,7 +359,7 @@ export default function AreachartPage() {
               />
             </div>
           </div>
-          <div className="flex space-x-2 mb-2 h-40 rounded-lg h-1/2">
+          <div className="flex space-x-2 h-40 rounded-lg h-1/2">
             <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
               <p className="text-xs">Cold Side Third Stage Air Temperature</p>
               <b>MAX 55</b>
