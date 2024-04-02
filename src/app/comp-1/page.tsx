@@ -97,14 +97,14 @@ export default function AreachartPage() {
               series={[
                 {
                   name: "series1",
-                  data: [1, 2, 5, 4, 1, 3, 7, 0, 4, 2, 11, 0],
+                  data: [1, 2, 5, 4, 1, 3, 7, 0, 4, 2, 10, 0],
                 },
               ]}
               type="bar"
               height={350}
             />
           </div>
-          <div className="h-[500px] bg-white p-2 rounded-lg">Maintenance List:</div>
+          <div className="h-[500px] border-2 bg-white p-2 shadow-lg rounded-lg">Maintenance List:</div>
         </div>
 
         <div className="grid grid-rows-11 space-y-2">
@@ -146,7 +146,7 @@ export default function AreachartPage() {
                 series={[
                   {
                     name: "series1",
-                    data: [31, 40, 28, 51, 42, 109, 100],
+                    data: [100, 40, 30, 21, 42, 10, 100],
                   },
                 ]}
                 type="area"
@@ -422,7 +422,7 @@ export default function AreachartPage() {
                 series={[
                   {
                     name: "series1",
-                    data: [31, 40, 28, 51, 42, 109, 100],
+                    data: [31, 40, 28, 99, 42, 120, 10],
                   },
                 ]}
                 type="area"
@@ -560,7 +560,7 @@ export default function AreachartPage() {
                 series={[
                   {
                     name: "series1",
-                    data: [31, 40, 28, 51, 42, 109, 100],
+                    data: [31, 40, 28, 51, 42, 109, 10],
                   },
                 ]}
                 type="area"
@@ -606,7 +606,7 @@ export default function AreachartPage() {
                 series={[
                   {
                     name: "series1",
-                    data: [31, 40, 28, 51, 42, 109, 100],
+                    data: [50, 40, 28, 51, 42, 60, 90],
                   },
                 ]}
                 type="area"
