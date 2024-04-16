@@ -1,8 +1,6 @@
 "use client";
 import { AreaChart, Card, DatePicker, Title } from "@tremor/react";
-import { Just_Me_Again_Down_Here } from "next/font/google";
 import Link from "next/link";
-import { hasUncaughtExceptionCaptureCallback } from "process";
 import {
   ReactElement,
   JSXElementConstructor,
@@ -13,7 +11,8 @@ import {
   useState,
 } from "react";
 import ReactApexChart from "react-apexcharts";
-import { Interface } from "readline/promises";
+
+
 export default function AreachartPage() {
   return (
     <div className="px-3 bg-cyan-300 w-full h-full">

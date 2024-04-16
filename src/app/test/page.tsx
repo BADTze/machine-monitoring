@@ -1,14 +1,34 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Thing } from "@/types";
 import Link from "next/link";
 import ReactApexChart from "react-apexcharts";
-import { NextResponse } from "next/server";
-import { promises } from "fs";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
+
 
 export default function PageTest() {
- 
-const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+  useEffect(() => {
+    fetch("https://my-json-server.typicode.com/apexcharts/apexcharts.js/yearly")
+    .then(res=>res.json())
+    .then(json=>{
+      const {data} = json
+      // setChartData({
+      //   options:{
+      //     chart:{
+      //       id:"area"
+      //     },
+      //     xaxis:{
+      //       categories:[1980,]
+      //     }
+      //   },
+      //   series:[
+      //     {
+
+      //     }
+      //   ]
+      // })
+    })
+  }, []);
 
   return (
     <div>
@@ -26,10 +46,13 @@ const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
         </div>
 
         <div className="border-2 rounded-lg w-[820px] bg-white">
-         {/* <ApexCharts/> */}
+          {typeof window !== "undefined" && (
+            <ReactApexChart
+
+            />
+          )}
         </div>
       </div>
-      {/* <p>{posts[9].username}</p> */}
     </div>
   );
 }
