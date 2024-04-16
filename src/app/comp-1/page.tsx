@@ -12,7 +12,6 @@ import {
 } from "react";
 import ReactApexChart from "react-apexcharts";
 
-
 export default function AreachartPage() {
   return (
     <div className="px-3 bg-cyan-300 w-full h-full">
@@ -103,7 +102,9 @@ export default function AreachartPage() {
               height={350}
             />
           </div>
-          <div className="h-[500px] border-2 bg-white p-2 shadow-lg rounded-lg">Maintenance List:</div>
+          <div className="h-[500px] border-2 bg-white p-2 shadow-lg rounded-lg">
+            Maintenance List:
+          </div>
         </div>
 
         <div className="grid grid-rows-11 space-y-2">
@@ -191,7 +192,7 @@ export default function AreachartPage() {
                 series={[
                   {
                     name: "series1",
-                    data: [31, 40, 28, 51, 42, 109, 100],
+                    data: [110, 40, 111, 51, 42, 109, 100],
                   },
                 ]}
                 type="area"
@@ -283,7 +284,7 @@ export default function AreachartPage() {
                 series={[
                   {
                     name: "series1",
-                    data: [31, 40, 28, 51, 42, 109, 100],
+                    data: [31, 40, 28, 108, 42, 109, 100],
                   },
                 ]}
                 type="area"
