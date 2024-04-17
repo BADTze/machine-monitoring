@@ -108,12 +108,12 @@ export default function AreachartPage() {
         </div>
 
         <div className="grid grid-rows-11 space-y-2">
-          <div className="flex space-x-2 h-40 rounded-lg ">
-            <div className=" flex-col w-40 h-40 rounded-lg p-2 border-2 bg-white">
+          <div className="flex space-x-2 h-52 rounded-lg ">
+            <div className=" flex-col w-40 h-52 rounded-lg p-2 border-2 bg-white">
               <p className="text-xs">Hot Side First Stage Air Temperature</p>
               <b>Max 200</b>
-              <div className="mt-2 text-5xl text-center">200</div>
-              <div className="mt-2">Celcius</div>
+              <div className="mt-9 text-5xl text-center">200</div>
+              <div className="mt-5">Celcius</div>
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
@@ -145,13 +145,14 @@ export default function AreachartPage() {
                 }}
                 series={[
                   {
-                    name: "series1",
+                    name: "series 1",
                     data: [100, 40, 30, 21, 42, 10, 100],
                   },
                 ]}
                 type="area"
-                height={150}
+                height={160}
               />
+              <h3>Min=50</h3>
             </div>
           </div>
           <div className="flex space-x-2 h-40 rounded-lg">
@@ -195,6 +196,7 @@ export default function AreachartPage() {
                     data: [110, 40, 111, 51, 42, 109, 100],
                   },
                 ]}
+                
                 type="area"
                 height={150}
               />
