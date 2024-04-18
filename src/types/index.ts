@@ -6,6 +6,6 @@ export type Thing = {
 };
 
 export type Nilai = {
-  x: string;
-  y: string;
+  x: number;
+  y: number;
 };

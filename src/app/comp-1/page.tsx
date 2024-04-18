@@ -117,7 +117,7 @@ export default function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              <ReactApexChart
+            <ReactApexChart
                 options={{
                   dataLabels: {
                     enabled: false,
@@ -145,12 +145,12 @@ export default function AreachartPage() {
                 }}
                 series={[
                   {
-                    name: "series 1",
-                    data: [100, 40, 30, 21, 42, 10, 100],
+                    name: "series1",
+                    data: [110, 40, 111, 51, 42, 109, 100],
                   },
                 ]}
                 type="area"
-                height={160}
+                height={150}
               />
               <h3>Min=50</h3>
             </div>
@@ -196,7 +196,6 @@ export default function AreachartPage() {
                     data: [110, 40, 111, 51, 42, 109, 100],
                   },
                 ]}
-                
                 type="area"
                 height={150}
               />
