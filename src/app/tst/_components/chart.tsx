@@ -21,10 +21,16 @@ export const ChartTest = ({ items }: { items: Nilai[] }) => {
         xaxis: {
           categories: items.map((res) => res.x) || [],
         },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+        },
       }}
       series={[
         {
-          name: "series-1",
+          name: "series 1",
           data: items.map((res) => res.y),
         },
       ]}
