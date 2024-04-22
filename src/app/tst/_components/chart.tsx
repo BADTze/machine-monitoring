@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Nilai } from "@/types";
 import ReactApexChart from "react-apexcharts";
 
-export const ChartTest = ({ items }: { items: Nilai[] }) => {
+export const ChartLine = ({ items }: { items: Nilai[] }) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export const ChartTest = ({ items }: { items: Nilai[] }) => {
       series={[
         {
           name: "series 1",
-          data: items.map((res) => res.y),
+          data: items.map((res) => res.y)
         },
       ]}
       type="area"

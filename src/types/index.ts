@@ -9,3 +9,9 @@ export type Nilai = {
   x: number;
   y: number;
 };
+
+export type Isi = {
+  id: string;
+  nama: string;
+  nomer: number;
+};
