@@ -10,10 +10,10 @@ export default async function Page() {
   );
   const responseJson: Nilai[] = await response.json();
 
-  // const respon = await fetch(
-  //   "https://my-json-server.typicode.com/brandonwamboldt/data/blob/master/datetime/months-detailed.json"
-  // );
-  // const res: Isi[] = await respon.json();
+  const respon = await fetch(
+    "https://66270e71b625bf088c073b29.mockapi.io/api/endpoint/DownTime"
+  );
+  const res: Isi[] = await respon.json();
 
   return (
     <div className="">
@@ -60,7 +60,7 @@ export default async function Page() {
 
           <div className="p-2 border-2 rounded-lg bg-white shadow-lg h-96">
             <div>Down Time:</div>
-            {/* <ChartBar data={res}/> */}
+            <ChartBar data={res}/>
           </div>
           <div className="h-[500px] border-2 bg-white p-2 shadow-lg rounded-lg">
             Maintenance List:

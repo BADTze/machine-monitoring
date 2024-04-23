@@ -12,6 +12,6 @@ export type Nilai = {
 
 export type Isi = {
   id: string;
-  nama: string;
-  nomer: number;
+  Bulan: string;
+  Total: number;
 };

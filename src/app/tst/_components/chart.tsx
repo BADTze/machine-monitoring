@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { Nilai } from "@/types";
 import ReactApexChart from "react-apexcharts";
