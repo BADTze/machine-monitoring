@@ -80,6 +80,7 @@ export default async function Page() {
               <h3>Min=50</h3>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
