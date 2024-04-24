@@ -1,8 +1,9 @@
 import { Isi, Nilai } from "@/types";
 import React, { useEffect } from "react";
 import { ChartLine } from "./_components/chart";
-import {ChartBar} from "./_components/chartbar";
+import { ChartBar } from "./_components/chartbar";
 import Link from "next/link";
+import { BarChart } from "@tremor/react";
 
 export default async function Page() {
   const response = await fetch(
@@ -16,7 +17,7 @@ export default async function Page() {
   const res: Isi[] = await respon.json();
 
   return (
-    <div className="">
+    <div className=" bg-cyan-300 px-3 w-full h-full">
       <header className="flex justify-between p-2">
         <Link className="max-w-sm" href="/">
           <h3 className="text-xl font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
@@ -61,6 +62,13 @@ export default async function Page() {
           <div className="p-2 border-2 rounded-lg bg-white shadow-lg h-96">
             <div>Down Time:</div>
             <ChartBar data={res}/>
+            {/* <BarChart
+              data={res}
+              index="date"
+              categories={["Running"]}
+              colors={["blue"]}
+              yAxisWidth={30}
+            /> */}
           </div>
           <div className="h-[500px] border-2 bg-white p-2 shadow-lg rounded-lg">
             Maintenance List:
