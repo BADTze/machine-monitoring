@@ -62,13 +62,6 @@ export default async function Page() {
           <div className="p-2 border-2 rounded-lg bg-white shadow-lg h-96">
             <div>Down Time:</div>
             <ChartBar data={res}/>
-            {/* <BarChart
-              data={res}
-              index="date"
-              categories={["Running"]}
-              colors={["blue"]}
-              yAxisWidth={30}
-            /> */}
           </div>
           <div className="h-[500px] border-2 bg-white p-2 shadow-lg rounded-lg">
             Maintenance List:
