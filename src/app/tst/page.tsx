@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { ChartLine } from "./_components/chart";
 import { ChartBar } from "./_components/chartbar";
 import Link from "next/link";
-import { BarChart } from "@tremor/react";
 
 export default async function Page() {
   const response = await fetch(
