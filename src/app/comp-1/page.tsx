@@ -1,8 +1,8 @@
 import { DatePicker } from "@tremor/react";
 import Link from "next/link";
-import { ChartBar } from "../components/Chartbar";
+import { ChartBar } from "../../components/Chartbar";
 import { Isi, Nilai } from "@/types";
-import { ChartLine } from "../components/Chartline";
+import { ChartLine } from "../../components/Chartline";
 
 export default async function AreachartPage() {
   const response = await fetch(

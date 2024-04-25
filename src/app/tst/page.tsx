@@ -1,7 +1,7 @@
 import { Isi, Nilai } from "@/types";
 import React, { useEffect } from "react";
-import { ChartLine } from "../components/Chartline";
-import { ChartBar } from "../components/Chartbar";
+import { ChartLine } from "../../components/Chartline";
+import { ChartBar } from "../../components/Chartbar";
 import Link from "next/link";
 
 export default async function Page() {
@@ -84,7 +84,7 @@ export default async function Page() {
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>

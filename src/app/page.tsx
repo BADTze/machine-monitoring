@@ -1,4 +1,4 @@
-import Card from "@/app/components/Card";
+import Card from "@/components/Card";
 import Image from "next/image";
 import Link from "next/link";
 
