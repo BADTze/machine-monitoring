@@ -17,7 +17,7 @@ export default async function AreachartPage() {
 
   return (
     <div className="px-3 bg-cyan-300 w-full h-full">
-      <header className="flex justify-between p-2">
+      <header className="flex justify-between h-16 p-2">
         <Link className="max-w-sm" href="/">
           <h3 className="text-xl font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
             &lt;- Kembali
@@ -37,20 +37,20 @@ export default async function AreachartPage() {
           <div className="bg-green-600 shadow-lg text-white text-4xl text-center p-5 h-20">
             Running
           </div>
-          <div className="h-17 border-2 shadow-lg p-2 bg-white">
+          <div className="h-17 border-2 shadow-lg p-2 text-2xl bg-white">
             <h2>Running Hours</h2>
             <div className="text-5xl text-center mt-5">3000</div>
           </div>
-          <div className="h-17 border-2 shadow-lg p-2 bg-white">
+          <div className="h-17 border-2 shadow-lg p-2 text-2xl bg-white">
             <h2>Running Hours (Period)</h2>
             <div className="text-5xl text-center mt-5">3000</div>
           </div>
-          <div className="h-17 border-2 shadow-lg p-2 bg-white">
+          <div className="h-17 border-2 shadow-lg p-2 text-2xl bg-white">
             <h2>Down Time (Minute)</h2>
             <div className="text-5xl text-center mt-5">30</div>
           </div>
 
-          <div className="p-2 border-2 bg-white shadow-lg">
+          <div className="p-2 border-2 text-2xl bg-white shadow-lg">
             <h2>Maintenance</h2>
             <div className="flex justify-around mt-8">
               <div className="text-green-600 text-2xl">PM = 3 </div>
@@ -59,18 +59,18 @@ export default async function AreachartPage() {
             </div>
           </div>
 
-          <div className="p-2 border-2 rounded-lg bg-white shadow-lg h-96">
+          <div className="p-2 text-2xl border-2 rounded-lg bg-white shadow-lg h-96">
             <div>Down Time:</div>
             <ChartBar data={res} />
           </div>
-          <div className="h-[500px] border-2 bg-white p-2 shadow-lg rounded-lg">
+          <div className="h-[500px] text-2xl border-2 bg-white p-2 shadow-lg rounded-lg">
             Maintenance List:
           </div>
         </div>
 
         <div className="grid grid-rows-11 space-y-2">
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Hot Side First Stage Air Temperature</p>
               <b>Max 200</b>
               <div className="text-5xl text-center">200</div>
@@ -87,7 +87,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Cold Side First Stage Air Temperature</p>
               <b>Max 55</b>
               <div className="text-5xl text-center">45</div>
@@ -104,7 +104,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Hot Side Second Stage Air Temperature</p>
               <b>Max 175</b>
               <div className="text-5xl text-center">100</div>
@@ -121,7 +121,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Cold Side Second Stage Air Temperature</p>
               <b>Max 55</b>
               <div className="text-5xl text-center">45</div>
@@ -138,7 +138,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Hot Side Third Stage Air Temperature</p>
               <b>Max 165</b>
               <div className="text-5xl text-center">150</div>
@@ -155,7 +155,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Cold Side Third Stage Air Temperature</p>
               <b>Max 55</b>
               <div className="text-5xl text-center">55</div>
@@ -172,7 +172,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Oil Pressure Compressor</p>
               <b>Max 1 Bar</b>
               <div className="text-5xl text-center">0</div>
@@ -189,7 +189,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Water Inlet Pressure</p>
               <b>Max 4 Min 2</b>
               <div className="text-5xl text-center">3</div>
@@ -206,7 +206,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Water Outlet Temperature</p>
               <b>Max 55</b>
               <div className="text-5xl text-center">46</div>
@@ -223,7 +223,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">2nd Stage Cylinder Water Temperature</p>
               <b>Max 62</b>
               <div className="text-5xl text-center">50</div>
@@ -240,7 +240,7 @@ export default async function AreachartPage() {
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
-            <div className=" flex-col space-y-7 w-40 h-48 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">3rd Stage Cylinder Water Temperature</p>
               <b>Max 62</b>
               <div className="text-5xl text-center">20</div>
