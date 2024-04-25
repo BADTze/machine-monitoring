@@ -1,6 +1,5 @@
-import { AreaChart, Card, DatePicker, Title } from "@tremor/react";
+import { DatePicker } from "@tremor/react";
 import Link from "next/link";
-import ReactApexChart from "react-apexcharts";
 import { ChartBar } from "../components/Chartbar";
 import { Isi, Nilai } from "@/types";
 import { ChartLine } from "../components/Chartline";
