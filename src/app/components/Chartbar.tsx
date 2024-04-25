@@ -31,13 +31,12 @@ export const ChartBar = ({ data }: { data: Isi[] }) => {
             borderRadius: 4,
             horizontal: true,
           },
-        },
+        }
       }}
       series={[
         {
-          name: "series 1",
-          data: data.map((res) => res.Total),
-        },
+          data:data.map((res) => res.Total) || []
+        }
       ]}
       type="bar"
       height={350}

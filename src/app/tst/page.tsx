@@ -1,7 +1,7 @@
 import { Isi, Nilai } from "@/types";
 import React, { useEffect } from "react";
-import { ChartLine } from "./_components/chart";
-import { ChartBar } from "./_components/chartbar";
+import { ChartLine } from "../components/Chartline";
+import { ChartBar } from "../components/Chartbar";
 import Link from "next/link";
 
 export default async function Page() {
@@ -60,7 +60,7 @@ export default async function Page() {
 
           <div className="p-2 border-2 rounded-lg bg-white shadow-lg h-96">
             <div>Down Time:</div>
-            <ChartBar data={res}/>
+            <ChartBar data={res} />
           </div>
           <div className="h-[500px] border-2 bg-white p-2 shadow-lg rounded-lg">
             Maintenance List:
@@ -68,16 +68,20 @@ export default async function Page() {
         </div>
         <div className="grid grid-rows-11 space-y-2">
           <div className="flex space-x-2 h-52 rounded-lg ">
-            <div className=" flex-col w-40 h-52 rounded-lg p-2 border-2 bg-white">
+            <div className=" flex-col space-y-7 w-40 h-52 rounded-lg p-2 border-2 bg-white">
               <p className="text-xs">Hot Side First Stage Air Temperature</p>
               <b>Max 200</b>
-              <div className="mt-9 text-5xl text-center">200</div>
-              <div className="mt-5">Celcius</div>
+              <div className="text-5xl text-center">200</div>
+              <div className="">Celcius</div>
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
               <ChartLine items={responseJson} />
-              <h3>Min=50</h3>
+              <div className="flex space-x-4 items-center justify-center">
+                <h3>Min=50</h3>
+                <h3>Median=50</h3>
+                <h3>Max=50</h3>
+              </div>
             </div>
           </div>
           
