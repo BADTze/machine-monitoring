@@ -1,14 +1,12 @@
 // import React, { useState } from 'react';
 // import Box from '@mui/material/Box';
-// import { useDashboardData } from './interfaces';
 // import TextField from '@mui/material/TextField';
 // import MenuItem from '@mui/material/MenuItem';
 // import Button from '@mui/material/Button';
 // import moment from 'moment';
 // import populateYears from '~/helpers/populate-years';
+// import { useDashboardData } from './interfaces';
 // import { months } from '~/data/constants';
-// import { useNavigate } from 'react-router';
-// import { useSearchParams } from 'react-router-dom';
 
 // const generateListOfWeeks = (year: string, month: string) => {
 //   const weeks: { start: string; end: string }[] = [];

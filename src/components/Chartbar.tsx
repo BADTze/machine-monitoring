@@ -18,7 +18,21 @@ export const ChartBar = ({ data }: { data: Isi[] }) => {
     <ReactApexChart
       options={{
         xaxis: {
-          categories: data.map((res) => res.Bulan) || [],
+          // categories: data.map((res) => res.Bulan) || []
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Okt",
+            "Nov",
+            "Des"
+          ],
         },
         dataLabels: {
           enabled: false,
@@ -31,12 +45,12 @@ export const ChartBar = ({ data }: { data: Isi[] }) => {
             borderRadius: 4,
             horizontal: true,
           },
-        }
+        },
       }}
       series={[
         {
-          data:data.map((res) => res.Total) || []
-        }
+          data: data.map((res) => res.Total) || [],
+        },
       ]}
       type="bar"
       height={350}
