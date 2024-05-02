@@ -23,7 +23,7 @@ export default async function AreachartPage() {
             &lt;- Kembali
           </h3>
         </Link>
-        <DatePicker className="max-w-sm" />
+        {/* <DatePicker className="max-w-sm" /> */}
       </header>
 
       <div className=" grid grid-cols-3 gap-3 h-full">

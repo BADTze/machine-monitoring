@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement()),
+  tanggal datetime,
+  hot_side_first_temp numeric,
+  cold_side_first_temp numeric,
+  hot_side_second_temp numeric,
+  cold_side_second_temp numeric,
+  hot_side_third_temp numeric,
+  cold_side_third_temp numeric,
+  oil_pressure numeric,
+  water_inlet_pressure numeric,
+  water_outlet_temp numeric,
+  second_stage_cylinder_water_temp numeric,
+  third_stage_cylinder_water_temp numeric
+}
