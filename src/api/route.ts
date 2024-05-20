@@ -10,4 +10,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.error('Error fetching data:', error);
     res.status(500).json({ error: 'Failed to fetch data' });
   }
+  
 }
