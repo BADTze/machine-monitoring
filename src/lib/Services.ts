@@ -8,7 +8,8 @@ type HistorianData = {
 export const saveDataToDB = async (data: HistorianData[]) => {
   try {
     const query = `INSERT INTO compabc (DateTime, Value) VALUES ?`;
-    const values = data.map((item) => [item.DateTime, item.Value]);
+    // const values = data.map((item) => [item.DateTime, item.Value]);
+    const values =[['19-12-2000','300']]
 
     await db.query(query, [values]);
     console.log("Data inserted successfully");
