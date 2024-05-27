@@ -1,14 +1,19 @@
-import { checkConnection } from '@/lib/db';
-import { NextApiRequest, NextApiResponse } from 'next';
+import db from "@/lib/db";
 
-export default async function handler(req:NextApiRequest, res:NextApiResponse) {
-  const isConnected = await checkConnection();
+type HistorianData = {
+  DateTime: string;
+  Value: number;
+};
 
-  if (!isConnected) {
-    return res.status(500).json({ error: 'Failed to connect to database' });
+export const saveDataToDB = async (data: HistorianData[]) => {
+  try {
+    const query = `INSERT INTO comp (DateTime, Value) VALUES ?`;
+    const values = data.map(item => [item.DateTime, item.Value]);
+    
+    await db.query(query, [values]);
+    console.log('Data inserted successfully');
+  } catch (error) {
+    console.error('Error inserting data:', error);
+    throw error;
   }
-
-  res.status(200).json({ message: 'Successfully connected to the database' });
-}
-
-
+};
