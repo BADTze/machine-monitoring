@@ -42,4 +42,5 @@ WHERE
   return Response.json({
     data: result,
   });
+
 };
