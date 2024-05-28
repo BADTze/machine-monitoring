@@ -15,3 +15,8 @@ export type Isi = {
   Bulan: string;
   Total: number;
 };
+
+export type HistorianData={
+  DateTime: string;
+  Value: number;
+};
