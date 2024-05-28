@@ -16,7 +16,12 @@ export type Isi = {
   Total: number;
 };
 
-export type HistorianData={
+export type HistorianData = {
   DateTime: string;
   Value: number;
 };
+
+export type HistorianType={
+  Value: number;
+};
+
