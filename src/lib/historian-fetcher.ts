@@ -34,7 +34,7 @@ export const getHistorianData = async <T>(params: { query: string }) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-    },
+    }
   });
 
   if (!response.ok) {

@@ -1,4 +1,3 @@
-import { DatePicker } from "@tremor/react";
 import Link from "next/link";
 import { ChartBar } from "../../components/Chartbar";
 import { Isi, Nilai } from "@/types";

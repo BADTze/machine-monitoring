@@ -1,4 +1,5 @@
 import { getHistorianData } from "@/lib/historian-fetcher";
+import { HistorianData, saveDataToDB } from "@/lib/services";
 
 export const GET = async () => {
   const query = `SET
@@ -35,12 +36,20 @@ From
 WHERE
   temp.StartDateTime >= @StartDate`;
 
-  const result = await getHistorianData({
+  const result = await getHistorianData<HistorianData>({
     query: query,
   });
+
+  const historianArgument: HistorianData[] = result.map((item) => {
+    return {
+      DateTime: item.DateTime,
+      Value: item.Value,
+    };
+  });
+
+  const hasil = await saveDataToDB(historianArgument);
 
   return Response.json({
     data: result,
   });
-
 };
