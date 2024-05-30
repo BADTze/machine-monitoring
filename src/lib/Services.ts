@@ -1,5 +1,4 @@
-import { HistorianType,HistorianData,Data} from "@/types";
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { HistorianData} from "@/types";
 import db from "@/lib/db";
 
 
