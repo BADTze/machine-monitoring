@@ -22,7 +22,7 @@ export const GET = async () => {
           FROM
               [Runtime].[dbo].[History]
           WHERE
-              History.TagName IN ('53_hot_side_first_stage_air_temp,')
+              History.TagName IN ('53_hot_side_first_stage_air_temp',)
               AND wwRetrievalMode = 'Cyclic'
               AND wwCycleCount = 100
               AND wwQualityRule = 'Extended'
