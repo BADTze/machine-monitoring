@@ -21,8 +21,14 @@ export type HistorianData = {
   Value: number;
 };
 
-export type HistorianType={
-  Value: number;
+export type HistorianType = {
+  tanggal: string;
+  hot_side_first_temp: number;
+  cold_side_first_temp: number;
+  hot_side_second_temp: number;
+  cold_side_second_temp: number;
+  hot_side_third_temp: number;
+  cold_side_third_temp: number;
 };
 
 export type Data = {

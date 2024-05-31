@@ -1,55 +1,52 @@
 import { getHistorianData } from "@/lib/historian-fetcher";
+import { saveHistorianData } from "@/lib/services";
 import { HistorianType,HistorianData } from "@/types";
 
 export const GET = async () => {
-  const query1 = `SET
-      NOCOUNT ON DECLARE @StartDate DateTime DECLARE @EndDate DateTime
-    SET
-      @StartDate = DateAdd(mi, -1, GetDate())
-    SET
-      @EndDate = GetDate()
-    SET
-      NOCOUNT OFF
-    SELECT
-      temp.TagName,
-      DateTime = convert(nvarchar, DateTime, 21),
-      Value,
-      StartDateTime
-    From
-      (
-          SELECT
-              *
-          FROM
-              [Runtime].[dbo].[History]
-          WHERE
-              History.TagName IN ('53_hot_side_first_stage_air_temp',)
-              AND wwRetrievalMode = 'Cyclic'
-              AND wwCycleCount = 100
-              AND wwQualityRule = 'Extended'
-              AND wwVersion = 'Latest'
-              AND DateTime >= @StartDate
-              AND DateTime <= @EndDate
-      ) temp
-      LEFT JOIN [Runtime].[dbo].[AnalogTag] ON AnalogTag.TagName = temp.TagName
-      LEFT JOIN [Runtime].[dbo].[EngineeringUnit] ON AnalogTag.EUKey = EngineeringUnit.EUKey
-      LEFT JOIN [Runtime].[dbo].[QualityMap] ON QualityMap.QualityDetail = temp.QualityDetail
-    WHERE
-      temp.StartDateTime >= @StartDate`;
+  const query1 = `SET NOCOUNT ON
+  DECLARE @StartDate DateTime
+  DECLARE @EndDate DateTime
+  SET @StartDate = DateAdd(mi,-5,GetDate())
+  SET @EndDate = GetDate()
+  SET NOCOUNT OFF
+  SELECT temp.TagName ,DateTime ,Value From (
+  SELECT  * 
+   FROM History
+   WHERE History.TagName IN (
+    '53_cold_side_first_stage_air_temp', 
+    '53_cold_side_second_stage_air_temp', 
+    '53_cold_side_third_stage_air_temp', 
+    '53_hot_side_first_stage_air_temp', 
+    '53_hot_side_second_stage_air_temp', 
+    '53_hot_side_third_stage_air_temp')
+   AND wwRetrievalMode = 'Cyclic'
+   AND wwCycleCount = 100
+   AND wwQualityRule = 'Extended'
+   AND wwVersion = 'Latest'
+   AND DateTime >= @StartDate
+   AND DateTime <= @EndDate) temp
+  LEFT JOIN AnalogTag ON AnalogTag.TagName =temp.TagName
+   WHERE temp.StartDateTime >= @StartDate`;
 
-  const result = await getHistorianData<HistorianData>({
+  const result = await getHistorianData<HistorianType>({
     query: query1,
   });
 
-  // const historianArgument: HistorianData[] = result.map((item) => {
+  // const Argumen: HistorianType[] = result.map((item) => {
   //   return {
-  //     DateTime: item.DateTime,
-  //     Value: item.Value,
+  //     tanggal:item.tanggal,
+  //     hot_side_first_temp: item.hot_side_first_temp,
+  //     cold_side_first_temp: item.cold_side_first_temp,
+  //     hot_side_second_temp: item.hot_side_second_temp,
+  //     cold_side_second_temp: item.cold_side_second_temp,
+  //     hot_side_third_temp: item.hot_side_third_temp,
+  //     cold_side_third_temp: item.cold_side_third_temp
   //   };
   // });
 
-  // const hasil = await save_hot_first(historianArgument);
+  // const hasil = await saveHistorianData(Argumen);
 
   return Response.json({
-    data: result
+    data: result,
   });
 };
