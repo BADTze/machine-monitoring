@@ -37,11 +37,11 @@ export const getHistorianData = async <T>(params: { query: string }) => {
     }
   });
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch historian data");
-  }
-
   const responseJson: T[] = await response.json();
 
+  if (!response.ok) {
+    console.error(responseJson)
+    throw new Error("Failed to fetch historian data");
+  }
   return responseJson;
 };

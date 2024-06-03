@@ -17,18 +17,25 @@ export type Isi = {
 };
 
 export type HistorianData = {
+  tanggal: any;
+  TagName: string;
   DateTime: string;
   Value: number;
 };
 
 export type HistorianType = {
   tanggal: string;
-  hot_side_first_temp: number;
-  cold_side_first_temp: number;
-  hot_side_second_temp: number;
-  cold_side_second_temp: number;
-  hot_side_third_temp: number;
-  cold_side_third_temp: number;
+  hot_side_first_temp: number | null;
+  cold_side_first_temp: number | null;
+  hot_side_second_temp: number | null;
+  cold_side_second_temp: number | null;
+  hot_side_third_temp: number | null;
+  cold_side_third_temp: number | null;
+  oil_pressure: number | null;
+  water_inlet_pressure: number | null;
+  water_outlet_temp: number | null;
+  second_stage_cylinder_water_temp: number | null;
+  third_stage_cylinder_water_temp: number | null;
 };
 
 export type Data = {

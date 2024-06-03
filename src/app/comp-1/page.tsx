@@ -5,9 +5,10 @@ import { ChartLine } from "@/components/Chartline";
 
 export default async function AreachartPage() {
   const response = await fetch(
-    "https://my-json-server.typicode.com/apexcharts/apexcharts.js/yearly"
+    "http://localhost:3000/api/get-data"
   );
-  const responseJson: Nilai[] = await response.json();
+  let chartdata =await response.json();
+  const responseJson: Nilai[] = chartdata.data['53_hot_side_first_stage_air_temp'];
 
   const respon = await fetch(
     "https://66270e71b625bf088c073b29.mockapi.io/api/endpoint/DownTime"
