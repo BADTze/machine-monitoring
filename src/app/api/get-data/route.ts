@@ -68,48 +68,50 @@ WHERE
   const formattedData = formatData(result);
   console.log("Formatted data to be saved:", formattedData);
 
-  // await saveHistorianData(formattedData);
   let temp: any = [];
   let grup: any = {};
 
   for (let item of result) {
-    
     let index = temp.findIndex((x: any) => x == item.TagName);
     if (index >= 0) {
-      grup[item.TagName]={ x: item.DateTime, y: item.Value };
+      grup[item.TagName] = { x: item.DateTime, y: item.Value };
     } else {
-      temp.push(item.TagName)
+      temp.push(item.TagName);
       grup[item.TagName] = { x: item.DateTime, y: item.Value };
     }
   }
-  const panggil = saveHistorianData(
-    Mappingdata(grup)
-  )
-  
+  const panggil = saveHistorianData(Mappingdata(grup));
+
   return Response.json({
     data: grup,
-    column:temp
-  
+    column: temp,
   });
 };
 
-const Mappingdata=(data:any)=>{
-  const timestamp=Date.now();
-  const formattedDate=new Date(timestamp).toISOString().slice(0,19).replace('T',' ');
-    const hasil:HistorianType[]=[{
+const Mappingdata = (data: any) => {
+  const timestamp = Date.now();
+  const formattedDate = new Date(timestamp)
+    .toISOString()
+    .slice(0, 19)
+    .replace("T", " ");
+  const hasil: HistorianType[] = [
+    {
       tanggal: formattedDate,
-      hot_side_first_temp:data['53_hot_side_first_stage_air_temp'].y,
-      cold_side_first_temp:data['53_cold_side_first_stage_air_temp'].y ,
-      hot_side_second_temp:data['53_hot_side_second_stage_air_temp'].y ,
-      cold_side_second_temp: data['53_cold_side_second_stage_air_temp'].y,
-      hot_side_third_temp: data['53_hot_side_third_stage_air_temp'].y,
-      cold_side_third_temp: data['53_cold_side_third_stage_air_temp'].y,
-      oil_pressure: data['53_oil_pressure_comp'].y,
-      water_inlet_pressure: data['53_water_inlet_pressure'].y,
-      water_outlet_temp: data['53_water_outlet_temp'].y,
-      second_stage_cylinder_water_temp: data['53_second_stage_cylinder_water_temp'].y,
-      third_stage_cylinder_water_temp:data['53_third_stage_cylinder_water_temp'].y 
-    }]
+      hot_side_first_temp: data["53_hot_side_first_stage_air_temp"].y,
+      cold_side_first_temp: data["53_cold_side_first_stage_air_temp"].y,
+      hot_side_second_temp: data["53_hot_side_second_stage_air_temp"].y,
+      cold_side_second_temp: data["53_cold_side_second_stage_air_temp"].y,
+      hot_side_third_temp: data["53_hot_side_third_stage_air_temp"].y,
+      cold_side_third_temp: data["53_cold_side_third_stage_air_temp"].y,
+      oil_pressure: data["53_oil_pressure_comp"].y,
+      water_inlet_pressure: data["53_water_inlet_pressure"].y,
+      water_outlet_temp: data["53_water_outlet_temp"].y,
+      second_stage_cylinder_water_temp:
+        data["53_second_stage_cylinder_water_temp"].y,
+      third_stage_cylinder_water_temp:
+        data["53_third_stage_cylinder_water_temp"].y,
+    },
+  ];
 
-    return hasil
-}
+  return hasil;
+};
