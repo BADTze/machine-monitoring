@@ -1,18 +1,6 @@
 import { HistorianType,HistorianData } from "@/types";
 import db from "@/lib/db";
 
-// export const saveHistorian = async (data: HistorianData[]) => {
-//   try {
-//     const query = `INSERT INTO compabc (tanggal, hot_side_first_temp) VALUES ?`;
-//     const values = data.map((item) => [item.DateTime, item.Value]);
-//     await db.query(query, [values]);
-//     console.log("Data inserted successfully");
-//   } catch (error) {
-//     console.error("Error inserting data:", error);
-//     throw error;
-//   }
-// };
-
 export const saveHistorianData = async (data: HistorianType[]): Promise<void> => {
   try {
     const query = `INSERT INTO compabc (tanggal, 

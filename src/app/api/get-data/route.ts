@@ -7,7 +7,7 @@ export const GET = async () => {
   const query1 = `SET
   NOCOUNT ON DECLARE @StartDate DateTime DECLARE @EndDate DateTime
 SET
-  @StartDate = DateAdd(mi, -1, GetDate())
+  @StartDate = GetDate()
 SET
   @EndDate = GetDate()
 SET
@@ -53,18 +53,6 @@ WHERE
     query: query1,
   });
 
-  // console.log("Data from AVEVA Historian:", result);
-
-  // const Argumen: HistorianData[] = result.map((item) => {
-  //   return {
-  //     Tagname: item.Tagname,
-  //     DateTime: item.DateTime,
-  //     Value: item.Value,
-  //   };
-  // });
-
-  // const hasil = await saveHistorianData(Argumen);
-
   const formattedData = formatData(result);
   console.log("Formatted data to be saved:", formattedData);
 
@@ -90,10 +78,17 @@ WHERE
 
 const Mappingdata = (data: any) => {
   const timestamp = Date.now();
-  const formattedDate = new Date(timestamp)
+
+  // Add 7 hours in milliseconds
+  const sevenHoursInMilliseconds = 7 * 60 * 60 * 1000;
+
+  const newDate = new Date(timestamp + sevenHoursInMilliseconds);
+
+  const formattedDate = new Date(newDate)
     .toISOString()
     .slice(0, 19)
     .replace("T", " ");
+
   const hasil: HistorianType[] = [
     {
       tanggal: formattedDate,
