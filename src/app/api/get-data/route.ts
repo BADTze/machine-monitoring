@@ -1,6 +1,9 @@
 import { getHistorianData } from "@/lib/historian-fetcher";
 import { HistorianData, HistorianType } from "@/types";
 import { saveHistorianData } from "@/lib/services";
+import { formatData } from "@/lib/format-data";
+
+export const revalidate = 0;
 
 export const GET = async () => {
   const query1 = `SET
@@ -52,8 +55,8 @@ WHERE
     query: query1,
   });
 
-  // const formattedData = formatData(result);
-  // console.log("Formatted data to be saved:", formattedData);
+  const formattedData = formatData(result);
+  console.log("Formatted data to be saved:", formattedData);
 
   let temp: any = [];
   let grup: any = {};
@@ -67,14 +70,14 @@ WHERE
       grup[item.TagName] = { x: item.DateTime, y: item.Value };
     }
   }
-  const panggil = saveHistorianData(Mappingdata(grup));
+  const panggil = saveHistorianData(mappingdata(grup));
 
   return Response.json({
-    data: grup
+    data: grup,
   });
 };
 
-const Mappingdata = (data: any) => {
+const mappingdata = (data: any) => {
   const timestamp = Date.now();
 
   const sevenHoursInMilliseconds = 7 * 60 * 60 * 1000;

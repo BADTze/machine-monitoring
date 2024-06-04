@@ -3,6 +3,8 @@ import { Isi, Nilai } from "@/types";
 import { ChartBar } from "@/components/Chartbar";
 import { ChartLine } from "@/components/Chartline";
 
+export const revalidate = 0;
+
 export default async function AreachartPage() {
   const response = await fetch(
     "http://localhost:3000/api/get-data"
