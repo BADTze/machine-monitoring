@@ -1,4 +1,3 @@
-import { formatData } from "@/lib/format-data";
 import { getHistorianData } from "@/lib/historian-fetcher";
 import { HistorianData, HistorianType } from "@/types";
 import { saveHistorianData } from "@/lib/services";
@@ -53,8 +52,8 @@ WHERE
     query: query1,
   });
 
-  const formattedData = formatData(result);
-  console.log("Formatted data to be saved:", formattedData);
+  // const formattedData = formatData(result);
+  // console.log("Formatted data to be saved:", formattedData);
 
   let temp: any = [];
   let grup: any = {};
@@ -71,15 +70,13 @@ WHERE
   const panggil = saveHistorianData(Mappingdata(grup));
 
   return Response.json({
-    data: grup,
-    column: temp,
+    data: grup
   });
 };
 
 const Mappingdata = (data: any) => {
   const timestamp = Date.now();
 
-  // Add 7 hours in milliseconds
   const sevenHoursInMilliseconds = 7 * 60 * 60 * 1000;
 
   const newDate = new Date(timestamp + sevenHoursInMilliseconds);
