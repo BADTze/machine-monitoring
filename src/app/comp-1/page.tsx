@@ -3,8 +3,6 @@ import { Isi, Nilai } from "@/types";
 import { ChartBar } from "@/components/Chartbar";
 import { ChartLine } from "@/components/Chartline";
 
-export const revalidate = 0;
-
 export default async function AreachartPage() {
   const response = await fetch(
     "http://localhost:3000/api/get-data"
@@ -91,7 +89,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              <ChartLine items={hotside_first} />
+              <ChartLine items={ho} />
               <div className="flex space-x-4 items-center justify-center">
                 <h3>Min=50</h3>
                 <h3>Median=50</h3>

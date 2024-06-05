@@ -1,4 +1,4 @@
-import { HistorianType,HistorianData } from "@/types";
+import { HistorianType,Nilai } from "@/types";
 import db from "@/lib/db";
 
 export const saveHistorianData = async (data: HistorianType[]): Promise<void> => {
@@ -33,3 +33,21 @@ export const saveHistorianData = async (data: HistorianType[]): Promise<void> =>
   }
 };
 
+// export async function isiChart{
+//   const response = await fetch(
+//     "http://localhost:3000/api/get-data"
+//   );
+//   let chartdata =await response.json();
+  
+//   const hotside_first: Nilai[] = chartdata.data['53_hot_side_first_stage_air_temp'];
+//   const coldside_first: Nilai[] = chartdata.data['53_cold_side_first_stage_air_temp'];
+//   const hotside_second: Nilai[] = chartdata.data['53_hot_side_second_stage_air_temp'];
+//   const coldside_second: Nilai[] = chartdata.data['53_cold_side_second_stage_air_temp'];
+//   const hotside_third: Nilai[] = chartdata.data['53_hot_side_third_stage_air_temp'];
+//   const coldside_third: Nilai[] = chartdata.data['53_cold_side_third_stage_air_temp'];
+//   const oil_pressure: Nilai[] = chartdata.data['53_oil_pressure_comp'];
+//   const water_inlet_temp: Nilai[] = chartdata.data['53_cold_side_third_stage_air_temp'];
+//   const water_outlet_temp: Nilai[] = chartdata.data['53_cold_side_third_stage_air_temp'];
+//   const second_cylinder: Nilai[] = chartdata.data['53_cold_side_third_stage_air_temp'];
+//   const third_cylinder: Nilai[] = chartdata.data['53_cold_side_third_stage_air_temp'];
+// }
