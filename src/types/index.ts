@@ -39,6 +39,5 @@ export type HistorianType = {
 };
 
 export type Data = {
-  message: string;
-  error?: string;
+  
 };
