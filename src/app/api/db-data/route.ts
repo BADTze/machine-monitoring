@@ -9,7 +9,6 @@ export async function Handler() {
     cd.release();
     
     const rowsArray = Array.isArray(rows) ? rows : [];
-
     const formattedData = formatData(rowsArray);
     
     return NextResponse.json(formattedData);
@@ -24,11 +23,8 @@ export async function Handler() {
 }
 
 const formatData = (data: any[]) => {
-
   let formattedData: any = {};
-
   for (let item of data) {
-   
     for (let key in item) {
       if (key !== 'id' && key !== 'tanggal') {
         if (!formattedData[key]) {
@@ -38,7 +34,6 @@ const formatData = (data: any[]) => {
       }
     }
   }
-  
   return formattedData;
 };
 
