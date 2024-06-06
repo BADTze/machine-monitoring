@@ -1,59 +1,45 @@
 import db from "@/lib/db";
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function Handler() {
   try {
     const cd = await db.getConnection();
-    const query = "select * from compabc";
+    const query = 'SELECT * FROM compabc';
     const [rows] = await cd.execute(query);
     cd.release();
+    
+    const rowsArray = Array.isArray(rows) ? rows : [];
 
-    return NextResponse.json(rows);
+    const formattedData = formatData(rowsArray);
+    
+    return NextResponse.json(formattedData);
   } catch (error) {
     return NextResponse.json(
       {
-        error: error,
+        error
       },
       { status: 500 }
     );
   }
 }
 
-function transformData(data: any[]): {
-  [key: number]: { [key: string]: { [key: string]: string } };
-} {
-  const transformedData: {
-    [key: number]: { [key: string]: { [key: string]: string } };
-  } = {};
+const formatData = (data: any[]) => {
 
-  for (const item of data) {
-    const id = item.id;
-    const timestamp = formatDate(item.tanggal);
+  let formattedData: any = {};
 
-    if (!transformedData[id]) {
-      transformedData[id] = {};
-    }
-
-    const categoryData = transformedData[id];
-
-    for (const key in item) {
-      if (key !== "id" && key !== "tanggal") {
-        const category = key.split("_")[0];
-        if (!categoryData[category]) {
-          categoryData[category] = {};
+  for (let item of data) {
+   
+    for (let key in item) {
+      if (key !== 'id' && key !== 'tanggal') {
+        if (!formattedData[key]) {
+          formattedData[key] = {};
         }
-        categoryData[category][timestamp] = item[key];
+        formattedData[key][item.tanggal] = item[key];
       }
     }
   }
+  
+  return formattedData;
+};
 
-  return transformedData;
-}
-
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  const hours = date.getHours().toString().padStart(2, "0");
-  const minutes = date.getMinutes().toString().padStart(2, "0");
-  return `${hours}:${minutes}`;
-}
+export const GET = Handler;
