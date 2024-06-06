@@ -10,6 +10,11 @@ export type Nilai = {
   y: number;
 };
 
+export type Data = {
+  x: string;
+  y: number;
+};
+
 export type Isi = {
   id: string;
   Bulan: string;
@@ -38,6 +43,4 @@ export type HistorianType = {
   third_stage_cylinder_water_temp: number | null;
 };
 
-export type Data = {
-  
-};
+

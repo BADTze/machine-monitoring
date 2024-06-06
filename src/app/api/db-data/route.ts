@@ -1,6 +1,7 @@
 import db from "@/lib/db";
 import { NextResponse } from "next/server";
 
+
 export async function Handler() {
   try {
     const cd = await db.getConnection();
@@ -8,7 +9,10 @@ export async function Handler() {
     const [rows] = await cd.execute(query);
     cd.release();
     
+    // Pastikan rows adalah array
     const rowsArray = Array.isArray(rows) ? rows : [];
+
+    // Format data sesuai kebutuhan
     const formattedData = formatData(rowsArray);
     
     return NextResponse.json(formattedData);
@@ -22,15 +26,18 @@ export async function Handler() {
   }
 }
 
+
 const formatData = (data: any[]) => {
   let formattedData: any = {};
+
   for (let item of data) {
+  
     for (let key in item) {
       if (key !== 'id' && key !== 'tanggal') {
         if (!formattedData[key]) {
-          formattedData[key] = {};
+          formattedData[key] = [];
         }
-        formattedData[key][item.tanggal] = item[key];
+        formattedData[key].push({ x: item.tanggal, y: item[key] });
       }
     }
   }
