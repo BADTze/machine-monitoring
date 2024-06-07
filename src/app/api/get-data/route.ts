@@ -90,7 +90,7 @@ const mappingdata = (data: any) => {
     .replace("T", " ");
 
   const hasil: HistorianType[] = [
-    {
+   {
       tanggal: formattedDate,
       hot_side_first_temp: data["53_hot_side_first_stage_air_temp"].y,
       cold_side_first_temp: data["53_cold_side_first_stage_air_temp"].y,
@@ -105,7 +105,7 @@ const mappingdata = (data: any) => {
         data["53_second_stage_cylinder_water_temp"].y,
       third_stage_cylinder_water_temp:
         data["53_third_stage_cylinder_water_temp"].y,
-    },
+    }
   ];
   return hasil;
 };

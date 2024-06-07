@@ -1,18 +1,14 @@
 import db from "@/lib/db";
 import { NextResponse } from "next/server";
 
-
 export async function Handler() {
   try {
     const cd = await db.getConnection();
     const query = 'SELECT * FROM compabc';
     const [rows] = await cd.execute(query);
     cd.release();
-    
-    // Pastikan rows adalah array
-    const rowsArray = Array.isArray(rows) ? rows : [];
 
-    // Format data sesuai kebutuhan
+    const rowsArray = Array.isArray(rows) ? rows : [];
     const formattedData = formatData(rowsArray);
     
     return NextResponse.json(formattedData);

@@ -19,13 +19,13 @@ export const ChartLine = ({ items }: { items: Nilai[] }) => {
       options={{
         xaxis: {
           categories: items.map((res) => res.x) || [],
-          labels:{
-            datetimeFormatter: {
-              // year: 'yyyy',
-              // month: 'MMM \'yy',
-              // day: 'dd MMM',
-              hour: 'HH:mm'
-            }
+          labels: {
+            // datetimeFormatter: {
+            //   year: 'yyyy',
+            //   month: 'MMM \'yy',
+            //   day: 'dd MMM',
+            //   hour: 'HH:mm'
+            // }
           }
         },
         dataLabels: {
@@ -38,7 +38,7 @@ export const ChartLine = ({ items }: { items: Nilai[] }) => {
       series={[
         {
           name: "series 1",
-          data: items.map((res) => res.y)
+          data: items.map((res) => res.y),
         },
       ]}
       type="area"
