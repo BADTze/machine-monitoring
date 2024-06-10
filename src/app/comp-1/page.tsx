@@ -94,7 +94,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={hs_first}/> */}
+              <ChartLine items={hs_first}/>
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -106,7 +106,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={cs_first} /> */}
+              <ChartLine items={cs_first} />
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
