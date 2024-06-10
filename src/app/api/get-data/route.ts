@@ -81,9 +81,7 @@ const mappingdata = (data: any) => {
   const timestamp = Date.now();
 
   const sevenHoursInMilliseconds = 7 * 60 * 60 * 1000;
-
   const newDate = new Date(timestamp + sevenHoursInMilliseconds);
-
   const formattedDate = new Date(newDate)
     .toISOString()
     .slice(0, 19)

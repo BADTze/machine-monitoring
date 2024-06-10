@@ -1,13 +1,7 @@
 import Link from "next/link";
-import { Isi, Nilai } from "@/types";
+import { Data, Isi, Nilai } from "@/types";
 import { ChartBar } from "@/components/Chartbar";
 import { ChartLine } from "@/components/Chartline";
-import { useEffect, useState } from "react";
-
-interface X {
-  hot_side_first_temp: Nilai[] | 0;
-  third_stage_cylinder_water_temp: Nilai[];
-}
 
 export const revalidate = 0;
 
@@ -16,29 +10,25 @@ export default async function AreachartPage() {
   //   "https://my-json-server.typicode.com/apexcharts/apexcharts.js/yearly"
   // );
   // const responseJson: Nilai[] = await response.json();
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const response = await fetch("http://localhost:3000/api/db-data");
+  let chartdata = await response.json();
+  const hs_first: Nilai[] = chartdata["hot_side_first_temp"];
+  const cs_first: Nilai[] = chartdata["cold_side_first_temp"];
 
-  const fetchData = async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch("http://localhost:3000/api/db-data");
-      const responseJson = await response.json();
-      setData(responseJson);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const test = ["hot_side_first_temp", "cold_side_first_temp"];
-  const hotSideData = data[0] as "hot_side_first_temp";
-  const coldSideData = data[1] as "cold_side_first_temp";
+  // const formattedTimeData = [];
+  // for (const item of hs_first) {
+  //   const timestamp = item.x;
+  //   const date = new Date(timestamp);
+  //   const hours = date.toLocaleString("id-ID", {
+  //     hour: "numeric",
+  //     minute: "2-digit",
+  //     hour12: false,
+  //   });
+  //   const formattedItem = {
+  //     hours: hours,
+  //   };
+  //   formattedTimeData.push(formattedItem);
+  // }
 
   const respon = await fetch(
     "https://66270e71b625bf088c073b29.mockapi.io/api/endpoint/DownTime"
@@ -108,12 +98,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={hotSideData} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              <ChartLine items={hs_first} />
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -125,12 +110,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={dust} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              <ChartLine items={cs_first} />
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">

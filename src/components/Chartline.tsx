@@ -19,14 +19,6 @@ export const ChartLine = ({ items }: { items: Nilai[] }) => {
       options={{
         xaxis: {
           categories: items.map((res) => res.x) || [],
-          labels: {
-            // datetimeFormatter: {
-            //   year: 'yyyy',
-            //   month: 'MMM \'yy',
-            //   day: 'dd MMM',
-            //   hour: 'HH:mm'
-            // }
-          }
         },
         dataLabels: {
           enabled: false,
@@ -42,7 +34,7 @@ export const ChartLine = ({ items }: { items: Nilai[] }) => {
         },
       ]}
       type="area"
-      height={150}
+      height={200}
     />
   );
 };

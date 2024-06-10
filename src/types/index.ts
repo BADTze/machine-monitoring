@@ -6,7 +6,7 @@ export type Thing = {
 };
 
 export type Nilai = {
-  x: number;
+  x: number | Date;
   y: number;
 };
 
@@ -42,5 +42,3 @@ export type HistorianType = {
   second_stage_cylinder_water_temp: number | null;
   third_stage_cylinder_water_temp: number | null;
 };
-
-
