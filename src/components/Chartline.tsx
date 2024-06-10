@@ -11,9 +11,7 @@ export const ChartLine = ({ items }: { items: Nilai[] }) => {
   }, []);
 
   if (!loaded) return null;
-
-  console.log(items);
-
+  
   return (
     <ReactApexChart
       options={{
