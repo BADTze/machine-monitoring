@@ -3,7 +3,7 @@ import { Data, Isi, Nilai } from "@/types";
 import { ChartBar } from "@/components/Chartbar";
 import { ChartLine } from "@/components/Chartline";
 // import SelectLabels from "@/components/DatePicker";
-import dynamic from "next/dynamic";
+
 
 // const Chartline = dynamic(()=>import("@/components/Chartline"), {
 //   ssr: false,
@@ -11,6 +11,7 @@ import dynamic from "next/dynamic";
 export const revalidate = 0;
 
 export default async function AreachartPage() {
+
   const response = await fetch("http://localhost:3000/api/db-data");
   let chartdata = await response.json();
   const hs_first: Nilai[] = chartdata["hot_side_first_temp"];
@@ -89,23 +90,23 @@ export default async function AreachartPage() {
               <p className="text-xs">Hot Side First Stage Air Temperature</p>
               <b>Max 200</b>
               <div className="text-5xl text-center">200</div>
-              <div className="">Celcius</div>
+              <div >Celcius</div>
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              <ChartLine items={hs_first} />
+              {/* <ChartLine items={hs_first}/> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
             <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Cold Side First Stage Air Temperature</p>
               <b>Max 55</b>
-              <div className="text-5xl text-center">45</div>
+              <div className="text-5xl text-center">40</div>
               <div className="">Celcius</div>
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              <ChartLine items={cs_first} />
+              {/* <ChartLine items={cs_first} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
