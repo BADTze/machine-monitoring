@@ -4,10 +4,6 @@ import { ChartBar } from "@/components/Chartbar";
 import { ChartLine } from "@/components/Chartline";
 // import SelectLabels from "@/components/DatePicker";
 
-
-// const Chartline = dynamic(()=>import("@/components/Chartline"), {
-//   ssr: false,
-// });
 export const revalidate = 0;
 
 export default async function AreachartPage() {
