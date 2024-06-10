@@ -1,6 +1,6 @@
 import db from "@/lib/db";
 import { NextResponse } from "next/server";
-import moment from 'moment';
+import moment from "@/lib/id-locale";
 
 export async function Handler() {
   try {
@@ -25,14 +25,15 @@ export async function Handler() {
 
 const formatData = (data: any[]) => {
   let formattedData: any = {};
-  moment.locale("id")
+
+  moment.locale('id')
+
   for (let item of data) {
     for (let key in item) {
       if (key !== "id" && key !== "tanggal") {
         if (!formattedData[key]) {
           formattedData[key] = [];
-        }
-         
+        } 
         formattedData[key].push({ x: moment(item.tanggal).format('LT'), y: item[key] });
       }
     }

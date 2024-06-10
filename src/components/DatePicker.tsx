@@ -4,9 +4,7 @@
 // import MenuItem from '@mui/material/MenuItem';
 // import Button from '@mui/material/Button';
 // import moment from 'moment';
-// import populateYears from '~/helpers/populate-years';
-// import { useDashboardData } from './interfaces';
-// import { months } from '~/data/constants';
+
 
 // const generateListOfWeeks = (year: string, month: string) => {
 //   const weeks: { start: string; end: string }[] = [];
@@ -38,11 +36,6 @@
 
 //     for (const iterator of searchParams.entries()) {
 //       currentSearch[iterator[0]] = iterator[1];
-//     }
-
-//     if (mode === 'custom') {
-//       currentSearch.startDate = startDate;
-//       currentSearch.endDate = endDate;
 //     }
 
 //     if (mode === 'daily') {

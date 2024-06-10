@@ -2,33 +2,28 @@ import Link from "next/link";
 import { Data, Isi, Nilai } from "@/types";
 import { ChartBar } from "@/components/Chartbar";
 import { ChartLine } from "@/components/Chartline";
+// import SelectLabels from "@/components/DatePicker";
+import dynamic from "next/dynamic";
 
+// const Chartline = dynamic(()=>import("@/components/Chartline"), {
+//   ssr: false,
+// });
 export const revalidate = 0;
 
 export default async function AreachartPage() {
-  // const response = await fetch(
-  //   "https://my-json-server.typicode.com/apexcharts/apexcharts.js/yearly"
-  // );
-  // const responseJson: Nilai[] = await response.json();
   const response = await fetch("http://localhost:3000/api/db-data");
   let chartdata = await response.json();
   const hs_first: Nilai[] = chartdata["hot_side_first_temp"];
   const cs_first: Nilai[] = chartdata["cold_side_first_temp"];
-
-  // const formattedTimeData = [];
-  // for (const item of hs_first) {
-  //   const timestamp = item.x;
-  //   const date = new Date(timestamp);
-  //   const hours = date.toLocaleString("id-ID", {
-  //     hour: "numeric",
-  //     minute: "2-digit",
-  //     hour12: false,
-  //   });
-  //   const formattedItem = {
-  //     hours: hours,
-  //   };
-  //   formattedTimeData.push(formattedItem);
-  // }
+  // const hs_second: Nilai[] = chartdata["hot_side_second_temp"];
+  // const cs_second: Nilai[] = chartdata["cold_side_second_temp"];
+  // const hs_third: Nilai[] = chartdata["hot_side_third_temp"];
+  // const cs_third: Nilai[] = chartdata["cold_side_third_temp"];
+  // const oil_press: Nilai[] = chartdata["oil_pressure"];
+  // const water_in_press: Nilai[] = chartdata["water_inlet_pressure"];
+  // const water_out_temp: Nilai[] = chartdata["water_outlet_temp"];
+  // const scnd_cylinder: Nilai[] = chartdata["second_stage_cylinder_water_temp"];
+  // const thrd_cylinder: Nilai[] = chartdata["third_stage_cylinder_water_temp"];
 
   const respon = await fetch(
     "https://66270e71b625bf088c073b29.mockapi.io/api/endpoint/DownTime"
@@ -43,7 +38,7 @@ export default async function AreachartPage() {
             &lt;- Kembali
           </h3>
         </Link>
-        {/* <DatePicker className="max-w-sm" /> */}
+        <div className="bg-white rounded-sm">{/* <SelectLabels/> */}</div>
       </header>
 
       <div className=" grid grid-cols-3 gap-3 h-full">
@@ -122,12 +117,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={hotside_second} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={hs_second} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -139,12 +129,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={coldside_second} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={cs_second} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -156,12 +141,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={hotside_third} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={hs_third} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -173,12 +153,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={coldside_third} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={cs_third} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -190,12 +165,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={oil_pressure} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={oil_press} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -207,12 +177,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={water_inlet_temp} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={water_in_press} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -224,12 +189,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={water_outlet_temp} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={water_out_temp} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -241,12 +201,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={second_cylinder} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={scnd_cylinder} /> */}
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">
@@ -258,12 +213,7 @@ export default async function AreachartPage() {
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              {/* <ChartLine items={third_cylinder} /> */}
-              <div className="flex space-x-4 items-center justify-center">
-                <h3>Min=50</h3>
-                <h3>Median=50</h3>
-                <h3>Max=50</h3>
-              </div>
+              {/* <ChartLine items={thrd_cylinder} /> */}
             </div>
           </div>
         </div>
