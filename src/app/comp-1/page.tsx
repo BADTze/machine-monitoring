@@ -2,11 +2,26 @@ import Link from "next/link";
 import { Data, Isi, Nilai } from "@/types";
 import { ChartBar } from "@/components/Chartbar";
 import { ChartLine } from "@/components/Chartline";
-// import SelectLabels from "@/components/DatePicker";
+import { useEffect, useState } from "react";
+import { NextApiResponse } from "next";
 
 export const revalidate = 0;
 
 export default async function AreachartPage() {
+  // const [latestData, setLatestData] = useState<any | null>(null);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:3000/api/get-data") 
+  //       setLatestData(response.data.data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+  
+  //   fetchData();
+  // }, []);
 
   const response = await fetch("http://localhost:3000/api/db-data");
   let chartdata = await response.json();
@@ -85,12 +100,12 @@ export default async function AreachartPage() {
             <div className=" flex-col space-y-4 w-40 h-48 rounded-lg p-4 border-2 bg-white">
               <p className="text-xs">Hot Side First Stage Air Temperature</p>
               <b>Max 200</b>
-              <div className="text-5xl text-center">200</div>
-              <div >Celcius</div>
+              <div className="text-5xl text-center"></div>
+              <div>Celcius</div>
             </div>
 
             <div className="border-2 rounded-lg w-[820px] bg-white">
-              <ChartLine items={hs_first}/>
+              <ChartLine items={hs_first} />
             </div>
           </div>
           <div className="flex space-x-2 h-48 rounded-lg ">

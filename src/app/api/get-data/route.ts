@@ -70,12 +70,13 @@ WHERE
       grup[item.TagName] = { x: item.DateTime, y: item.Value };
     }
   }
+
   const panggil = saveHistorianData(mappingdata(grup));
 
   return Response.json({
     data: grup,
   });
-};
+  };
 
 const mappingdata = (data: any) => {
   const timestamp = Date.now();
@@ -105,7 +106,6 @@ const mappingdata = (data: any) => {
         data["53_third_stage_cylinder_water_temp"].y,
     },
   ];
-  console.log(hasil)
   return hasil;
 };
 

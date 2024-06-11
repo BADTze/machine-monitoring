@@ -18,7 +18,6 @@ export const ChartBar = ({ data }: { data: Isi[] }) => {
     <ReactApexChart
       options={{
         xaxis: {
-          // categories: data.map((res) => res.Bulan) || []
           categories: [
             "Jan",
             "Feb",

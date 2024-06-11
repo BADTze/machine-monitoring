@@ -4,9 +4,7 @@ const cron = require("node-cron");
 cron.schedule(" */60 * * * *", async () => {
   console.log("");
   console.log("######################################");
-  console.log("#                                    #");
   console.log("# Running scheduler every 60 minutes #");
-  console.log("#                                    #");
   console.log("######################################");
   console.log("");
 
