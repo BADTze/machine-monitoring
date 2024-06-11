@@ -34,7 +34,7 @@ const formatData = (data: any[]) => {
         if (!formattedData[key]) {
           formattedData[key] = [];
         } 
-        formattedData[key].push({ x: moment(item.tanggal).format('LT'), y: item[key] });
+        formattedData[key].push({ x:item.tanggal, y: item[key] });
       }
     }
   }

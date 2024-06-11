@@ -6,32 +6,31 @@ export const revalidate = 0;
 
 async function fetchData() {
   try {
-    const res = await fetch('http://localhost:3000/api/db-data');
+    const res = await fetch("http://localhost:3000/api/db-data");
     if (!res.ok) {
       throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
     }
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
     return null;
   }
 }
 
 export default async function AreachartPage() {
-
-  const data: { 
-    hot_side_first_temp: DataType[], 
-    cold_side_first_temp: DataType[], 
-    hot_side_second_temp: DataType[], 
-    cold_side_second_temp: DataType[], 
-    hot_side_third_temp: DataType[], 
-    cold_side_third_temp: DataType[], 
-    oil_pressure: DataType[], 
-    water_inlet_pressure: DataType[], 
-    water_outlet_temp: DataType[], 
-    second_stage_cylinder_water_temp: DataType[], 
-    third_stage_cylinder_water_temp: DataType[], 
+  const data: {
+    hot_side_first_temp: DataType[];
+    cold_side_first_temp: DataType[];
+    hot_side_second_temp: DataType[];
+    cold_side_second_temp: DataType[];
+    hot_side_third_temp: DataType[];
+    cold_side_third_temp: DataType[];
+    oil_pressure: DataType[];
+    water_inlet_pressure: DataType[];
+    water_outlet_temp: DataType[];
+    second_stage_cylinder_water_temp: DataType[];
+    third_stage_cylinder_water_temp: DataType[];
   } | null = await fetchData();
 
   if (!data) {
@@ -53,19 +52,40 @@ export default async function AreachartPage() {
   const water_out_data = data.water_outlet_temp;
   const scnd_cilynder_data = data.second_stage_cylinder_water_temp;
   const thrd_cylinder_data = data.third_stage_cylinder_water_temp;
- 
-  const hs_first_y = hotSideData1.length ? hotSideData1[hotSideData1.length - 1].y : 'N/A';
-  const cs_first_y = coldSideData1.length ? coldSideData1[coldSideData1.length - 1].y : 'N/A';
-  const hs_scnd_y = hotSideData2.length ? hotSideData2[hotSideData2.length - 1].y : 'N/A';
-  const cs_scnd_y = coldSideData2.length ? coldSideData2[coldSideData2.length - 1].y : 'N/A';
-  const hs_thrd_y = hotSideData3.length ? hotSideData3[hotSideData3.length - 1].y : 'N/A';
-  const cs_thrd_y = coldSideData3.length ? coldSideData3[coldSideData3.length - 1].y : 'N/A';
-  const oil_y = oil_press_data.length ? oil_press_data[oil_press_data.length - 1].y : 'N/A';
-  const water_in_y = water_in_data.length ? water_in_data[water_in_data.length - 1].y : 'N/A';
-  const water_out_y = water_out_data.length ? water_out_data[water_out_data.length - 1].y : 'N/A';
-  const scnd_cylinder_y = scnd_cilynder_data.length ? scnd_cilynder_data[scnd_cilynder_data.length - 1].y : 'N/A';
-  const thrd_cylinder_y = thrd_cylinder_data.length ? thrd_cylinder_data[thrd_cylinder_data.length - 1].y : 'N/A';
-  
+
+  const hs_first_y = hotSideData1.length
+    ? hotSideData1[hotSideData1.length - 1].y
+    : "N/A";
+  const cs_first_y = coldSideData1.length
+    ? coldSideData1[coldSideData1.length - 1].y
+    : "N/A";
+  const hs_scnd_y = hotSideData2.length
+    ? hotSideData2[hotSideData2.length - 1].y
+    : "N/A";
+  const cs_scnd_y = coldSideData2.length
+    ? coldSideData2[coldSideData2.length - 1].y
+    : "N/A";
+  const hs_thrd_y = hotSideData3.length
+    ? hotSideData3[hotSideData3.length - 1].y
+    : "N/A";
+  const cs_thrd_y = coldSideData3.length
+    ? coldSideData3[coldSideData3.length - 1].y
+    : "N/A";
+  const oil_y = oil_press_data.length
+    ? oil_press_data[oil_press_data.length - 1].y
+    : "N/A";
+  const water_in_y = water_in_data.length
+    ? water_in_data[water_in_data.length - 1].y
+    : "N/A";
+  const water_out_y = water_out_data.length
+    ? water_out_data[water_out_data.length - 1].y
+    : "N/A";
+  const scnd_cylinder_y = scnd_cilynder_data.length
+    ? scnd_cilynder_data[scnd_cilynder_data.length - 1].y
+    : "N/A";
+  const thrd_cylinder_y = thrd_cylinder_data.length
+    ? thrd_cylinder_data[thrd_cylinder_data.length - 1].y
+    : "N/A";
 
   const response = await fetch("http://localhost:3000/api/db-data");
   let chartdata = await response.json();
@@ -87,7 +107,7 @@ export default async function AreachartPage() {
   const res: Isi[] = await respon.json();
 
   return (
-    <div className="px-3 bg-cyan-300 w-full h-full">
+    <div className="px-3 bg-cyan-300 mb-0">
       <header className="flex justify-between h-16 p-2">
         <Link className="max-w-sm" href="/">
           <h3 className="text-xl font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
