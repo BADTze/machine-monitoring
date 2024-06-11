@@ -11,9 +11,12 @@ export type Nilai = {
 };
 
 export type Data = {
-  x: string;
-  y: number;
+  [key: string]: { x: string; y: number };
 };
+export type DataType = {
+  x: string;
+  y: string;
+}
 
 export type Isi = {
   id: string;
@@ -30,15 +33,15 @@ export type HistorianData = {
 
 export type HistorianType = {
   tanggal: string;
-  hot_side_first_temp: number | null;
-  cold_side_first_temp: number | null;
-  hot_side_second_temp: number | null;
-  cold_side_second_temp: number | null;
-  hot_side_third_temp: number | null;
-  cold_side_third_temp: number | null;
-  oil_pressure: number | null;
-  water_inlet_pressure: number | null;
-  water_outlet_temp: number | null;
-  second_stage_cylinder_water_temp: number | null;
-  third_stage_cylinder_water_temp: number | null;
+  hot_side_first_temp: number | 0;
+  cold_side_first_temp: number | 0;
+  hot_side_second_temp: number | 0;
+  cold_side_second_temp: number | 0;
+  hot_side_third_temp: number | 0;
+  cold_side_third_temp: number | 0;
+  oil_pressure: number | 0;
+  water_inlet_pressure: number | 0;
+  water_outlet_temp: number | 0;
+  second_stage_cylinder_water_temp: number | 0;
+  third_stage_cylinder_water_temp: number | 0;
 };
