@@ -28,7 +28,7 @@ export const ChartLine = ({ items }: { items: Nilai[] }) => {
       }}
       series={[
         {
-          name: "series 1",
+          name: "Nilai",
           data: items.map((res) => res.y),
         },
       ]}
