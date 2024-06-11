@@ -114,7 +114,6 @@ export default async function AreachartPage() {
             &lt;- Kembali
           </h3>
         </Link>
-        <div className="bg-white rounded-sm">{/* <SelectLabels/> */}</div>
       </header>
 
       <div className=" grid grid-cols-3 gap-3 h-full">
